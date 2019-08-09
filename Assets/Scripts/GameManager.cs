@@ -61,11 +61,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     public static void HitByLight() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
 
     /// <summary>
     /// Update the target position placement pose based on a raycast from the middle of the screen

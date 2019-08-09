@@ -24,4 +24,12 @@ public class LightSpawner : MonoBehaviour
             timer = 0f;
         }
     }
+
+    private void OnCollisionEnter(Collision collision) {
+        Debug.Log("Hit");
+        if (collision.collider.CompareTag("Player")) {
+            Debug.Log("By player");
+            Destroy(transform.parent.gameObject);
+        }
+    }
 }

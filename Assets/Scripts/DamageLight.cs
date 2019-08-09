@@ -11,7 +11,7 @@ public class DamageLight : MonoBehaviour {
 
     void Start()
     {
-        size = transform.localScale.magnitude;
+        size = transform.localScale.x / 2f;
         targetPosition = GameManager.car.transform.position;
     }
     

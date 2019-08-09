@@ -27,11 +27,8 @@ public class Car : MonoBehaviour
     /// </summary>
     private void UpdateCarPosition() {
         Vector3 movement = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal"), 0f, CrossPlatformInputManager.GetAxis("Vertical"));
-        myRigidBody.AddForce(movement * AddedForce);
-        if(myRigidBody.velocity.sqrMagnitude > MoveSpeed * MoveSpeed) {
-            myRigidBody.velocity = myRigidBody.velocity.normalized * MoveSpeed;
-        }
 
-        transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, movement.normalized, Time.deltaTime * RotateSpeed, 0f));
+        transform.Rotate(Vector3.up * CrossPlatformInputManager.GetAxis("Horizontal") * Time.deltaTime * RotateSpeed);
+        transform.position = transform.position + transform.forward * CrossPlatformInputManager.GetAxis("Vertical") * Time.deltaTime * MoveSpeed;
     }
 }
